@@ -1,0 +1,10 @@
+
+
+<div [ngStyle]="{'padding-left': cssFunLayer(t) }" *ngFor="let t of tree; let i = index">
+    <div *ngIf="i === 0" (click)="addNode(t.layer + 1, i, t.result)" class="purple">{{t.result}}</div>
+    <div *ngIf="t.color === 'green' && i !== 0" (click)="addNode(t.layer + 1, i, t.result)" class="green">{{t.result - 2}} + 2 = {{t.result}}</div>
+    <div *ngIf="t.color === 'red'" (click)="addNode(t.layer + 1, i, t.result)" class="red">{{t.result - 1}} + 1 = {{t.result}}</div>
+</div>
+  
+
+<div *ngIf="tree">Total: {{total}}</div>
